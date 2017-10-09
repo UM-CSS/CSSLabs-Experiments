@@ -1,0 +1,28 @@
+{% load staticfiles otree_tags %}
+
+<div id="media-player-{{ artifact.num }}" class="modal fade media-player" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{ artifact.name }}</h4>
+            </div>
+            <div class="modal-body">
+                <img src="{{ artifact.url }}" width="560"/>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-10">
+                        {% formfield artifact.rating_field with label="Rating" %}
+                        <div>
+                            <a href="{{ artifact.url }}" download="{{ artifact.filename }}">Download</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

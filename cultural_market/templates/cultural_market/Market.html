@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block styles %}
+<link href="{% static "cultural_market/style.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Market
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+</script>
+
+<div id="market-image">
+    
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                This page contains a list of images you might find interesting.
+                Click image titles to open them.
+            </p>
+        </div>
+    </div>
+    
+    {% for a in artifacts %}
+        {% include 'cultural_market/ImagePlayer.html' with artifact=a %}
+    {% endfor %}
+    
+    <ul class="list-group">
+        {% for a in artifacts %}
+            {% include "cultural_market/Image.html" with artifact=a %}
+        {% endfor %}
+    </div>
+</div>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+.page-header {
+    margin: 0;
+    padding: 0;
+}
+
+#market-image .preview {
+    position: absolute;
+}
+#market-image .description h3 {
+    margin-top: 0;
+}
+#market-image .media-player .modal-dialog {
+    width: 620px;
+}
+#market-image .media-player .modal-body {
+    max-height: 400px;
+    overflow: scroll;
+}
+#market-image .media-player .modal-footer {
+    text-align:left;
+}
+#market-image .media-player .modal-footer button {
+    float: right;
+}
+#market-image .media-player img {
+    margin-bottom: 15px;
+}
+#market-image .form-group {
+    display: inline-block;
+    margin: 0;
+}
+#market-image .form-group .controls {
+    display: inline;
+}
+#market-image .form-group ul {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+#market-image .form-group li {
+    display: inline-block;
+    padding-left: 0.5em;
+}
