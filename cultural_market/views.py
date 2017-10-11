@@ -12,7 +12,13 @@ class Market(Page):
     
     def get_context_data(self, **kwargs):
         context = super(Market, self).get_context_data(**kwargs)
-        context["num_artifacts"] = Constants.num_artifacts
+        context["config"] = {
+            "num_artifacts": Constants.num_artifacts,
+            "num_worlds": Constants.num_worlds,
+            "show_views": Constants.show_views,
+            "show_downloads": Constants.show_downloads,
+            "show_ratings": Constants.show_ratings
+        }
         context["artifacts"] = [
             {
                 "num": i,
@@ -22,21 +28,15 @@ class Market(Page):
                 "filename": Constants.artifact_filenames[i]
             }
             for i in range(Constants.num_artifacts)]
+        context["show_views"] = Constants.show_views
+        context["show_downloads"] = Constants.show_downloads
+        context["show_ratings"] = Constants.show_ratings
         return context
-
-
-class ResultsWaitPage(WaitPage):
-
-    def after_all_players_arrive(self):
-        pass
-
 
 class Results(Page):
     pass
 
 
 page_sequence = [
-    Market,
-    ResultsWaitPage,
-    Results
+    Market
 ]

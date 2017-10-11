@@ -41,3 +41,13 @@
     display: inline-block;
     padding-left: 0.5em;
 }
+
+#market-image .stats {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+#market-image .stats li {
+    display: inline-block;
+    margin-left: 1em;
+}

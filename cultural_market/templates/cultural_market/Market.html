@@ -26,12 +26,12 @@
     </div>
     
     {% for a in artifacts %}
-        {% include 'cultural_market/ImagePlayer.html' with artifact=a %}
+        {% include 'cultural_market/ImagePlayer.html' with artifact=a config=config %}
     {% endfor %}
     
     <ul class="list-group">
         {% for a in artifacts %}
-            {% include "cultural_market/Image.html" with artifact=a %}
+            {% include "cultural_market/Image.html" with artifact=a config=config %}
         {% endfor %}
     </div>
 </div>
