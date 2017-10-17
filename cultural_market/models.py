@@ -30,7 +30,6 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     pass
 
-
 class Group(BaseGroup):
     pass
 
@@ -47,3 +46,4 @@ class Player(BasePlayer):
         locals()["download_" + str(i)] = models.BooleanField(blank=True)
     world = models.IntegerField(initial=0)
     del i
+    

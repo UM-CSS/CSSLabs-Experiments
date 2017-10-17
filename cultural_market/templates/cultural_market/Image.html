@@ -3,13 +3,13 @@
         <h3><a class="play-media" href="#media-player-{{ artifact.num }}" data-toggle="modal">{{ artifact.name }}</a></h3>
         <ul class="stats">
             {% if config.show_views %}
-                <li><strong>Views:</strong> 1337</li>
+                <li><strong>Views:</strong> {{ artifact.num_views }}</li>
             {% endif %}
             {% if config.show_downloads %}
-                <li><strong>Downloads:</strong> 237</li>
+                <li><strong>Downloads:</strong> {{ artifact.num_downloads }}</li>
             {% endif %}
             {% if config.show_ratings %}
-                <li><strong>Rating:</strong> 4.2</li>
+                <li><strong>Rating:</strong> {{ artifact.mean_rating }}</li>
             {% endif %}
         </ul>
         
