@@ -1,6 +1,6 @@
 <li id="artifact-{{ artifact.num }}" class="list-group-item image">
     <div class="description">
-        <h3><a class="play-media" href="#media-player-{{ artifact.num }}" data-toggle="modal">{{ artifact.name }}</a></h3>
+        <h3><a class="play-media play-media-{{ artifact.num }}" href="#media-player-{{ artifact.num }}" data-toggle="modal">{{ artifact.name }}</a></h3>
         <ul class="stats">
             {% if config.show_views %}
                 <li><strong>Views:</strong> {{ artifact.num_views }}</li>
@@ -11,7 +11,6 @@
             {% if config.show_ratings %}
                 <li><strong>Rating:</strong> {{ artifact.mean_rating }}</li>
             {% endif %}
-        </ul>
-        
+        </ul>        
     </div>
 </li>

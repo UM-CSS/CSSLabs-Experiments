@@ -12,7 +12,11 @@ class Market(Page):
     form_model = models.Player
 
     def get_form_fields(self):
-        return ["rating_" + str(i) for i in range(Constants.num_artifacts)]
+        fields = (
+            ["rating_" + str(i) for i in range(Constants.num_artifacts)]
+            + ["view_" + str(i) for i in range(Constants.num_artifacts)]
+            + ["download_" + str(i) for i in range(Constants.num_artifacts)])
+        return fields
     
     def get_context_data(self, **kwargs):
         context = super(Market, self).get_context_data(**kwargs)
@@ -36,6 +40,7 @@ class Market(Page):
                 "num_downloads": 0
             }
             for i in range(Constants.num_artifacts)]
+        context["num_artifacts"] = len(artifacts)
         context["artifacts"] = artifacts
         context["show_views"] = Constants.show_views
         context["show_downloads"] = Constants.show_downloads
