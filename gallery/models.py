@@ -4,6 +4,7 @@ from otree.api import (
 )
 from configparser import ConfigParser
 import random
+import yaml
 
 author = 'Edward L. Platt'
 
@@ -11,49 +12,25 @@ doc = """
 Social influence in cultural markets. Bassed on Salganik, Dodds, and Watts 2006.
 """
 
-config = ConfigParser()
-config.read("cultural_market/market.cfg")
-
+with open("gallery/config.yaml", "r") as f:
+    config = yaml.load(f)
 
 class Constants(object):
     name_in_url = 'cultural_market'
     players_per_group = None
     num_rounds = 1
     
-    show_views = config.getboolean('experiment', 'show_views')
-    show_downloads = config.getboolean('experiment', 'show_downloads')
-    show_ratings = config.getboolean('experiment', 'show_ratings')
-    num_worlds = config.getint('experiment', 'num_worlds')
-    
-    artifact_rows = []
-    for s in config.get('experiment', 'artifacts').split('\n'):
-        if len(s.strip()) > 0:
-            artifact_rows.append(s)
-    artifact_names = []
-    artifact_init = []
-    artifact_urls = []
-    for row in artifact_rows:
-       artifact_name, artifact_i, artifact_u = row.split(";")
-       artifact_names.append(artifact_name)
-       artifact_init.append(artifact_i)
-       artifact_urls.append(artifact_u)
-    num_artifacts = len(artifact_names)
-    artifact_filenames = []
-    for s in artifact_urls:
-        artifact_filenames.append(s.split("/")[-1])
-    artifact_const = []
-    for i in range(num_artifacts):
-        artifact_const.append({
-            "num": i,
-            "url": artifact_urls[i],
-            "name": artifact_names[i],
-            "filename": artifact_filenames[i],
-            "init_num_views": int(artifact_init[i].split(",")[0].strip()),
-            "init_num_downloads": int(artifact_init[i].split(",")[1].strip()),
-            "init_num_ratings": int(artifact_init[i].split(",")[2].strip()),
-            "init_mean_rating": float(artifact_init[i].split(",")[3].strip())
-        })
-
+    show_views = bool(config["show_views"])
+    show_downloads = bool(config["show_downloads"])
+    show_ratings = bool(config["show_ratings"])
+    num_worlds = int(config["num_worlds"])
+    artifacts = config["artifacts"]
+    for a in artifacts:
+        a["view_count"] = int(a.get("view_count", 0))
+        a["download_count"] = int(a.get("download_count", 0))
+        a["rating_count"] = int(a.get("rating_count", 0))
+        a["start_rating"] = float(a.get("start_rating", 2.5))
+    num_artifacts = len(artifacts)
 
 class Subsession(BaseSubsession):
     def creating_session(self):

@@ -1,0 +1,20 @@
+num_worlds: 8
+
+show_views: True
+show_downloads: True
+show_ratings: True
+
+artifacts:
+    - label: XKCD
+      url: https://imgs.xkcd.com/comics/here_to_help_2x.png
+    - label: The Adventures of Business Cat
+      url: http://www.businesscat.happyjar.com/wp-content/uploads/2014/01/2014-01-07-Coffee.png
+      view_count: 1337
+      download_count: 237
+      rating_count: 0
+      start_rating: 2.5
+    - label: Saturday Morning Breakfast Cereal
+      url: http://www.smbc-comics.com/comics/20090719.gif
+    - label: Questionable Content
+      url: http://www.questionablecontent.net/comics/3586.png
+
