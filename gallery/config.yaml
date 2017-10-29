@@ -1,9 +1,16 @@
+
+# The number of experimental groups, world 0 is always control
 num_worlds: 8
 
+# Which information to display to users in experimental group
 show_views: True
 show_downloads: True
 show_ratings: True
 
+# The title to display on the gallery page
+title: Comic Gallery
+
+# List of artifacts to display on the gallery page
 artifacts:
     - label: XKCD
       url: https://imgs.xkcd.com/comics/here_to_help_2x.png

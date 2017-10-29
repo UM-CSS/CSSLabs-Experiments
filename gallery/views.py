@@ -8,7 +8,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 from .models import Player
 
-class Market(Page):
+class Main(Page):
     form_model = models.Player
 
     def get_form_fields(self):
@@ -19,7 +19,7 @@ class Market(Page):
         return fields
     
     def get_context_data(self, **kwargs):
-        context = super(Market, self).get_context_data(**kwargs)
+        context = super(Main, self).get_context_data(**kwargs)
         context["config"] = {
             "num_artifacts": Constants.num_artifacts,
             "num_worlds": Constants.num_worlds,
@@ -37,12 +37,12 @@ class Market(Page):
         for i, a in enumerate(Constants.artifacts):
             artifacts[i]["num"] = i
             artifacts[i].update(a)
-            print(artifacts[i])
         context["num_artifacts"] = len(artifacts)
         context["artifacts"] = artifacts
         context["show_views"] = Constants.show_views
         context["show_downloads"] = Constants.show_downloads
         context["show_ratings"] = Constants.show_ratings
+        context["title"] = Constants.title
         
         player_fields = _get_table_fields(Player)
         Subsession = models_module = otree.common_internal.get_models_module('gallery').Subsession
@@ -87,5 +87,5 @@ class Results(Page):
 
 
 page_sequence = [
-    Market
+    Main
 ]

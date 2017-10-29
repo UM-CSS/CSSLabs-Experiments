@@ -16,14 +16,16 @@ with open("gallery/config.yaml", "r") as f:
     config = yaml.load(f)
 
 class Constants(object):
-    name_in_url = 'cultural_market'
+    name_in_url = 'gallery'
     players_per_group = None
     num_rounds = 1
     
-    show_views = bool(config["show_views"])
-    show_downloads = bool(config["show_downloads"])
-    show_ratings = bool(config["show_ratings"])
-    num_worlds = int(config["num_worlds"])
+    show_views = bool(config.get("show_views", False))
+    show_downloads = bool(config.get("show_downloads", False))
+    show_ratings = bool(config.get("show_ratings", False))
+    num_worlds = int(config.get("num_worlds", 8))
+    title = config.get("title", "Gallery")
+    
     artifacts = config["artifacts"]
     for a in artifacts:
         a["view_count"] = int(a.get("view_count", 0))
