@@ -1,3 +1,6 @@
+from operator import itemgetter
+import random
+
 import otree
 from otree.api import Currency as c, currency_range
 from otree.session import SessionConfig
@@ -31,14 +34,14 @@ class Main(Page):
             {
                 "rating_field": context["form"]["rating_{}".format(i)],
                 "true_rating_count": 0,
-                "total_rating": 0
+                "total_rating": 0,
+                "random": random.random()
             }
             for i in range(Constants.num_artifacts)]
         for i, a in enumerate(Constants.artifacts):
             artifacts[i]["num"] = i
             artifacts[i].update(a)
         context["num_artifacts"] = len(artifacts)
-        context["artifacts"] = artifacts
         context["show_views"] = Constants.show_views
         context["show_downloads"] = Constants.show_downloads
         context["show_ratings"] = Constants.show_ratings
@@ -80,6 +83,11 @@ class Main(Page):
                     / (float(a["true_rating_count"]) + float(a["rating_count"])))
             except ZeroDivisionError:
                 a["mean_rating"] = a["start_rating"]
+        if context["player"].world == 0:
+            artifacts = sorted(artifacts, key=itemgetter("random"), reverse=True)
+        else:
+            artifacts = sorted(artifacts, key=itemgetter(Constants.sort_by), reverse=True)
+        context["artifacts"] = artifacts
         return context
 
 class Results(Page):

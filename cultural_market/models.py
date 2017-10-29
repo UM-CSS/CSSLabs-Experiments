@@ -23,6 +23,7 @@ class Constants(object):
     show_views = bool(config.get("show_views", False))
     show_downloads = bool(config.get("show_downloads", False))
     show_ratings = bool(config.get("show_ratings", False))
+    sort_by = config.get("sort_by", "random")
     num_worlds = int(config.get("num_worlds", 8))
     title = config.get("title", "Gallery")
     
