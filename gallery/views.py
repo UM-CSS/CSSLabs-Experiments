@@ -29,17 +29,16 @@ class Market(Page):
         }
         artifacts = [
             {
-                "num": i,
                 "rating_field": context["form"]["rating_{}".format(i)],
-                "url": Constants.artifact_urls[i],
-                "name": Constants.artifact_names[i],
-                "filename": Constants.artifact_filenames[i],
                 "num_ratings": 0,
                 "mean_rating": 0,
                 "num_views": 0,
-                "num_downloads": 0
+                "num_downloads": 0,
+                "total_rating": 0
             }
             for i in range(Constants.num_artifacts)]
+        for i, a in enumerate(Constants.artifact_const):
+            artifacts[i].update(a)
         context["num_artifacts"] = len(artifacts)
         context["artifacts"] = artifacts
         context["show_views"] = Constants.show_views
@@ -56,10 +55,12 @@ class Market(Page):
             subsession = subsession[0]
             subsession_id = subsession['id']
             for player in Player.objects.filter(subsession_id=subsession_id).order_by('id').values():
+                if player["world"] != context["player"].world:
+                    continue
                 for i in range(Constants.num_artifacts):
                     a = artifacts[i]
                     try:
-                        a["mean_rating"] += player["rating_{}".format(i)]
+                        a["total_rating"] += player["rating_{}".format(i)]
                         a["num_ratings"] += 1
                     except TypeError:
                         pass
@@ -73,8 +74,13 @@ class Market(Page):
                         pass
         for i in range(Constants.num_artifacts):
             a = artifacts[i]
+            a["num_views"] += a["init_num_views"]
+            a["num_downloads"] += a["init_num_downloads"]
             try:
-                a["mean_rating"] = float(a["mean_rating"]) / float(a["num_ratings"])
+                m = float(a["total_rating"]) / float(a["num_ratings"])
+                a["mean_rating"] = (
+                    (m*float(a["num_ratings"]) + a["init_mean_rating"]*a["init_num_ratings"])
+                    / (float(a["num_ratings"]) + float(a["init_num_ratings"])))
             except ZeroDivisionError:
                 a["mean_rating"] = 0
         return context
