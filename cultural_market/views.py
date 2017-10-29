@@ -45,7 +45,7 @@ class Main(Page):
         context["title"] = Constants.title
         
         player_fields = _get_table_fields(Player)
-        Subsession = models_module = otree.common_internal.get_models_module('gallery').Subsession
+        Subsession = models_module = otree.common_internal.get_models_module('cultural_market').Subsession
         rows = []
         for session in Session.objects.order_by('id'):
             subsession = Subsession.objects.filter(session_id=session.id, round_number=1).values()

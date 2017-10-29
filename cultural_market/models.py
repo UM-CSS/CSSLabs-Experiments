@@ -12,7 +12,7 @@ doc = """
 Social influence in cultural markets. Bassed on Salganik, Dodds, and Watts 2006.
 """
 
-with open("gallery/config.yaml", "r") as f:
+with open("cultural_market/config.yaml", "r") as f:
     config = yaml.load(f)
 
 class Constants(object):
