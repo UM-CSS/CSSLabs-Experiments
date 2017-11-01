@@ -10,7 +10,7 @@ show_ratings: True
 
 # How to determine the order artifacts are displayed in
 # Options: view_count, download_count, mean_rating, random
-sort_by: download_count
+sort_by: view_count
 
 # The title to display on the gallery page
 title: Comic Gallery
@@ -19,7 +19,6 @@ title: Comic Gallery
 artifacts:
     - label: XKCD
       url: https://imgs.xkcd.com/comics/here_to_help_2x.png
-      download_count: 230
     - label: The Adventures of Business Cat
       url: http://www.businesscat.happyjar.com/wp-content/uploads/2014/01/2014-01-07-Coffee.png
       view_count: 1337
@@ -31,4 +30,5 @@ artifacts:
       download_count: 240
     - label: Questionable Content
       url: http://www.questionablecontent.net/comics/3586.png
+      download_count: 230
 
