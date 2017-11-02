@@ -63,7 +63,7 @@ class Main(Page):
                     a = artifacts[i]
                     try:
                         a["total_rating"] += player["rating_{}".format(i)]
-                        a["true_ratings_count"] += 1
+                        a["true_rating_count"] += 1
                     except TypeError:
                         pass
                     try:
