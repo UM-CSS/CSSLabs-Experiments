@@ -90,10 +90,15 @@ class Main(Page):
         context["artifacts"] = artifacts
         return context
 
+class survey(Page):
+    form_model = models.Player
+    form_fields = ['comments']
+
 class Results(Page):
     pass
 
 
 page_sequence = [
-    Main
+    Main,
+    survey
 ]

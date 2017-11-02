@@ -57,3 +57,5 @@ class Player(BasePlayer):
     world = models.IntegerField(initial=0)
     del i
     
+    comments = models.TextField(verbose_name='Comments:')
+    
