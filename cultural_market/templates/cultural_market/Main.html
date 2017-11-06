@@ -16,6 +16,7 @@ numArtifacts = {{ num_artifacts }};
 var getViewHandler = function (artifact) {
     return function () {
         $("#id_view_" + artifact).val('1');
+        startTime = (new Date()).getTime();
     };
 };
 var getDownloadHandler = function (artifact) {
@@ -23,10 +24,20 @@ var getDownloadHandler = function (artifact) {
         $("#id_download_" + artifact).val('1');
     };
 };
+var getCloseHandler = function (artifact) {
+    return function () {
+        timeOnArtifact[artifact] += (new Date()).getTime() - startTime;
+    };
+};
+timeOnArtifact = []
+var startTime;
 $(document).ready(function () {
     for (var i = 0; i < numArtifacts; i++) {
         $(".play-media-" + i).click(getViewHandler(i));
+        $("#media-player-" + i + " .close").click(getCloseHandler(i));
+        $("#media-player-" + i + " .done").click(getCloseHandler(i));
         $(".download-" + i).click(getDownloadHandler(i));
+        timeOnArtifact.push(0);
     }
 });
 </script>
