@@ -36,24 +36,29 @@ $(document).ready(function () {
     <div class="row">
         <div class="col-md-12">
             <p>
-                {{world}}
-            </p>
-            <p>
                 This page contains a list of images you might find interesting.
                 Click image titles to open them.
+            </p>
+            <p>
+                DEBUG: World {{ world }}
             </p>
         </div>
     </div>
     
-    {% for a in artifacts %}
-        {% include 'cultural_market/ImagePlayer.html' with artifact=a config=config %}
+    {% for artifact_row in artifacts %}
+        {% for a in artifact_row %}
+            {% include 'cultural_market/ImagePlayer.html' with artifact=a config=config %}
+        {% endfor %}
     {% endfor %}
     
-    <ul class="list-group">
-        {% for a in artifacts %}
-            {% include "cultural_market/Image.html" with artifact=a config=config %}
+    {% for artifact_row in artifacts %}
+        <div class="row">
+        {% for a in artifact_row %}
+            {% include "cultural_market/Image.html" with artifact=a config=config width=width%}
         {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
+    
 </div>
 
     {% next_button %}

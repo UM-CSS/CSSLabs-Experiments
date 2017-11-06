@@ -46,6 +46,7 @@ class Main(Page):
         context["show_downloads"] = Constants.show_downloads
         context["show_ratings"] = Constants.show_ratings
         context["title"] = Constants.title
+        context["world"] = self.player.world
         
         player_fields = _get_table_fields(Player)
         Subsession = models_module = otree.common_internal.get_models_module('cultural_market').Subsession
@@ -87,7 +88,24 @@ class Main(Page):
             artifacts = sorted(artifacts, key=itemgetter("random"), reverse=True)
         else:
             artifacts = sorted(artifacts, key=itemgetter(Constants.sort_by), reverse=True)
-        context["artifacts"] = artifacts
+        try:
+            context["width"] = {
+                1: "12", 2: "6", 3: "4", 4: "3"
+            }[Constants.num_columns]
+            context["artifacts"] = []
+            artifacts = list(reversed(artifacts))
+            while len(artifacts) > 0:
+                row = []
+                for i in range(Constants.num_columns):
+                    try:
+                        row.append(artifacts.pop())
+                    except IndexError:
+                        break
+                context["artifacts"].append(row)
+                
+        except KeyError:
+            context["width"] = 12
+            context["artifacts"] = artifacts
         return context
 
 class survey(Page):

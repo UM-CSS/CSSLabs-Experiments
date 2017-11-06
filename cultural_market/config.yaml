@@ -1,6 +1,10 @@
 
 # The number of experimental groups, world 0 is always control
-num_worlds: 8
+num_worlds: 3
+
+# The number of columns to display
+# Options: 1, 2, 3, 4
+num_columns: 2
 
 # Which information to display to users in experimental group
 # Options: True, False
