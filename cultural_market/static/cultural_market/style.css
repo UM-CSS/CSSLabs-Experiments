@@ -15,6 +15,7 @@
 #market-image .media-player .modal-body {
     max-height: 400px;
     overflow: scroll;
+    width: 100%;
 }
 #market-image .media-player .modal-footer {
     text-align:left;
