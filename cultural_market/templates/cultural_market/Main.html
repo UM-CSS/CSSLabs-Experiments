@@ -27,6 +27,7 @@ var getDownloadHandler = function (artifact) {
 var getCloseHandler = function (artifact) {
     return function () {
         timeOnArtifact[artifact] += (new Date()).getTime() - startTime;
+        $("#id_time_ms_" + artifact).val(timeOnArtifact[artifact])
     };
 };
 timeOnArtifact = []

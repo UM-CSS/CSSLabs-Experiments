@@ -18,7 +18,8 @@ class Main(Page):
         fields = (
             ["rating_" + str(i) for i in range(Constants.num_artifacts)]
             + ["view_" + str(i) for i in range(Constants.num_artifacts)]
-            + ["download_" + str(i) for i in range(Constants.num_artifacts)])
+            + ["download_" + str(i) for i in range(Constants.num_artifacts)]
+            + ["time_ms_" + str(i) for i in range(Constants.num_artifacts)])
         return fields
     
     def get_context_data(self, **kwargs):

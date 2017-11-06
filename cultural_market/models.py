@@ -53,8 +53,8 @@ class Player(BasePlayer):
             blank=True)
     for i in range(Constants.num_artifacts):
         locals()["view_" + str(i)] = models.IntegerField(blank=True)
-    for i in range(Constants.num_artifacts):
         locals()["download_" + str(i)] = models.IntegerField(blank=True)
+        locals()["time_ms_" + str(i)] = models.IntegerField(blank=True)
     world = models.IntegerField(initial=0)
     del i
     
