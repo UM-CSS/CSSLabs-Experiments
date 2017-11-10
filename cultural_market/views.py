@@ -42,6 +42,10 @@ class Main(Page):
         for i, a in enumerate(Constants.artifacts):
             artifacts[i]["num"] = i
             artifacts[i].update(a)
+            artifacts[i]['view_count'] = a["world_view_count"][self.player.world]
+            artifacts[i]['download_count'] = a["world_download_count"][self.player.world]
+            artifacts[i]['rating_count'] = a["world_rating_count"][self.player.world]
+            artifacts[i]['start_rating'] = a["world_start_rating"][self.player.world]
         context["num_artifacts"] = len(artifacts)
         context["show_views"] = Constants.show_views
         context["show_downloads"] = Constants.show_downloads
@@ -63,6 +67,7 @@ class Main(Page):
                     continue
                 for i in range(Constants.num_artifacts):
                     a = artifacts[i]
+                    # Sum and count all real ratings
                     try:
                         a["total_rating"] += player["rating_{}".format(i)]
                         a["true_rating_count"] += 1
@@ -79,6 +84,7 @@ class Main(Page):
         for i in range(Constants.num_artifacts):
             a = artifacts[i]
             try:
+                # Figure out mean for real ratings
                 m = float(a["total_rating"]) / float(a["true_rating_count"])
                 a["mean_rating"] = (
                     (m*float(a["true_rating_count"]) + a["start_rating"]*a["rating_count"])

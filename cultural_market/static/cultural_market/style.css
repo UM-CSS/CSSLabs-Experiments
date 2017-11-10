@@ -52,3 +52,7 @@
     display: inline-block;
     margin-left: 1em;
 }
+
+.debug {
+    display: none;
+}

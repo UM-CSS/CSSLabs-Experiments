@@ -15,6 +15,18 @@ Social influence in cultural markets. Bassed on Salganik, Dodds, and Watts 2006.
 with open("cultural_market/config.yaml", "r") as f:
     config = yaml.load(f)
 
+def parse_world_counts(num_worlds, o):
+    if isinstance(o, list):
+        assert(len(o) == num_worlds)
+        return [int(count) for count in o]
+    return [int(o) for i in range(num_worlds)]
+
+def parse_world_ratings(num_worlds, o):
+    if isinstance(o, list):
+        assert(len(o) == num_worlds)
+        return [float(count) for count in o]
+    return [float(o) for i in range(num_worlds)]
+
 class Constants(object):
     name_in_url = 'gallery'
     players_per_group = None
@@ -30,16 +42,16 @@ class Constants(object):
     
     artifacts = config["artifacts"]
     for a in artifacts:
-        a["view_count"] = int(a.get("view_count", 0))
-        a["download_count"] = int(a.get("download_count", 0))
-        a["rating_count"] = int(a.get("rating_count", 0))
-        a["start_rating"] = float(a.get("start_rating", 2.5))
+        a["world_view_count"] = parse_world_counts(num_worlds, a.get("view_count", 0))
+        a["world_download_count"] = parse_world_counts(num_worlds, a.get("download_count", 0))
+        a["world_rating_count"] = parse_world_counts(num_worlds, a.get("rating_count", 0))
+        a["world_start_rating"] = parse_world_ratings(num_worlds, a.get("start_rating", 2.5))
     num_artifacts = len(artifacts)
 
 class Subsession(BaseSubsession):
     def creating_session(self):
         for p in self.get_players():
-            p.world = random.randint(0, Constants.num_worlds)
+            p.world = random.randint(0, Constants.num_worlds - 1)
 
 class Group(BaseGroup):
     pass
