@@ -57,7 +57,7 @@ port, e.g., `8000`.
 Open the oTree admin webpage in a web browser.
 Navigate to the `Sessions` tab and click the `Create new session` button.
 
-<img alt="Adding a session" src="doc/images/add-session.png" width="769px" style="border: solid 1px lightgray" />
+<code><img alt="Adding a session" src="doc/images/add-session.png" width="769px" /></code>
 
 Select "Social Influence in Cultural Markets" from the dropdown list.
 Also enter the maximum number of participants.
