@@ -66,7 +66,7 @@ minutes to create the session.
 The orginal Salganik and Watts study used 8206 participants.
 Finally, click `Create`.
 
-<img alt="Configuring a new session" src="doc/images/add-session.png" width="394px" style="border: solid 1px lightgray" />
+<img alt="Configuring a new session" src="doc/images/session.png" width="394px" style="border: solid 1px lightgray" />
 
 ### 9. Send links to your participants
 Once the session is created, oTree will generate two types of links:
