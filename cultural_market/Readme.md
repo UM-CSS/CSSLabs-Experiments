@@ -41,10 +41,12 @@ After this line, insert the following text:
     },
 
 ### 6. Configure your experiment
-Now edit the file `config.yaml` in the `cultural_market` directory to configure the parameters of your experiment.
+Now open the file `config.yaml` in the `cultural_market` directory to configure the parameters of your experiment.
 In this file you can configure artifact names and labels, how artifacts are sorted, which statistics are visible to
 participants, and whether artifacts have initial values for their statistics.
 The file contains comments and examples for different configuration options.
+
+    nano cultural_market/config.yaml
 
 ### 7. Create the oTree database
 Enter the following command and enter `y` when it prompts you to continue.
