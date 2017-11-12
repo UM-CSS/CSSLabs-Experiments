@@ -14,14 +14,28 @@
 <script type="text/javascript">
 numArtifacts = {{ num_artifacts }};
 var getViewHandler = function (artifact) {
+    var viewed = false;
     return function () {
         $("#id_view_" + artifact).val('1');
+        // Add 1 to visible count if not yet viewed
+        if (!viewed) {
+            var count = parseInt($("#view-count-" + artifact).text());
+            $("#view-count-" + artifact).text(count + 1);
+            viewed = true;
+        }
         startTime = (new Date()).getTime();
     };
 };
 var getDownloadHandler = function (artifact) {
+    var downloaded = false;
     return function () {
         $("#id_download_" + artifact).val('1');
+        // Add 1 to visible count if not yet viewed
+        if (!downloaded) {
+            var count = parseInt($("#download-count-" + artifact).text());
+            $("#download-count-" + artifact).text(count + 1);
+            downloaded = true;
+        }
     };
 };
 var getCloseHandler = function (artifact) {

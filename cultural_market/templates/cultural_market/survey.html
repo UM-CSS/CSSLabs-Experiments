@@ -2,10 +2,12 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Thank you!
+    Feedback
 {% endblock %}
 
 {% block content %}
+
+    <p>Do you have any comments about this survey?</p>
 
     {% for field in form %}
         {% formfield field %}

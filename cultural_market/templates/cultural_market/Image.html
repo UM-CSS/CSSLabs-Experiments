@@ -4,15 +4,15 @@
         <h3><a class="play-media play-media-{{ artifact.num }}" href="#media-player-{{ artifact.num }}" data-toggle="modal">{{ artifact.label }}</a></h3>
         <ul class="stats">
             {% if config.show_views %}
-                <li><strong>Views:</strong> {{ artifact.view_count }}</li>
+                <li><strong>Views:</strong> <span id="view-count-{{ artifact.num }}">{{ artifact.view_count }}</span></li>
             {% endif %}
             {% if config.show_downloads %}
-                <li><strong>Downloads:</strong> {{ artifact.download_count }}</li>
+                <li><strong>Downloads:</strong> <span id="download-count-{{ artifact.num }}">{{ artifact.download_count }}</li>
             {% endif %}
             {% if config.show_ratings %}
                 <li><strong>Rating:</strong> {{ artifact.mean_rating }}</li>
             {% endif %}
-        </ul>        
+        </ul>
     </div>
     </div>
 </div>
