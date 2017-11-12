@@ -40,12 +40,18 @@ After this line, insert the following text:
         'app_sequence': ['cultural_market']
     },
 
-### 6. Create the oTree database
+### 6. Configure your experiment
+Now edit the file `config.yaml` in the `cultural_market` directory to configure the parameters of your experiment.
+In this file you can configure artifact names and labels, how artifacts are sorted, which statistics are visible to
+participants, and whether artifacts have initial values for their statistics.
+The file contains comments and examples for different configuration options.
+
+### 7. Create the oTree database
 Enter the following command and enter `y` when it prompts you to continue.
 
     otree resetdb
 
-### 7. Start the oTree server
+### 8. Start the oTree server
 Assuming you have followed the server setup instructions in the oTree documentation,
 enter the following command to start the server in production mode.
 If you want to use a port other than the default, change `80` to the desired
@@ -53,7 +59,7 @@ port, e.g., `8000`.
 
     sudo -E env "PATH=$PATH" otree runprodserver 80
 
-### 8. Create a session
+### 9. Create a session
 Open the oTree admin webpage in a web browser.
 Navigate to the `Sessions` tab and click the `Create new session` button.
 
@@ -68,14 +74,14 @@ Finally, click `Create`.
 
 <img alt="Configuring a new session" src="doc/images/session.png" width="394px" style="border: solid 1px lightgray" />
 
-### 9. Send links to your participants
+### 10. Send links to your participants
 Once the session is created, oTree will generate two types of links:
 a single persistent link that can be sent to all players,
 and a single-use link for each participant.
 
 <img alt="Getting participant links" src="doc/images/links.png" width="974px" style="border: solid 1px lightgray" />
 
-### 10. Downloading data
+### 11. Downloading data
 You can view the experiment data online by clicking the `Data` tab.
 
 <img alt="Viewing data online" src="doc/images/data.png" width="983px" style="border: solid 1px lightgray" />
