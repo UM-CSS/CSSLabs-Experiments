@@ -57,7 +57,7 @@ port, e.g., `8000`.
 Open the oTree admin webpage in a web browser.
 Navigate to the `Sessions` tab and click the `Create new session` button.
 
-<img alt="Adding a session" src="doc/images/add-session.png" width="394px" style="border: solid 1px lightgray" />
+<img alt="Adding a session" src="doc/images/add-session.png" width="769px" style="border: solid 1px lightgray" />
 
 Select "Social Influence in Cultural Markets" from the dropdown list.
 Also enter the maximum number of participants.
@@ -66,20 +66,20 @@ minutes to create the session.
 The orginal Salganik and Watts study used 8206 participants.
 Finally, click `Create`.
 
-![Configuring the new session](doc/images/session.png)
+<img alt="Configuring a new session" src="doc/images/add-session.png" width="394px" style="border: solid 1px lightgray" />
 
 ### 9. Send links to your participants
 Once the session is created, oTree will generate two types of links:
 a single persistent link that can be sent to all players,
 and a single-use link for each participant.
 
-![Getting participant links](doc/images/links.png)
+<img alt="Getting participant links" src="doc/images/links.png" width="974px" style="border: solid 1px lightgray" />
 
 ### 10. Downloading data
 You can view the experiment data online by clicking the `Data` tab.
 
-![Viewing data online](doc/images/data.png)
+<img alt="Viewing data online" src="doc/images/data.png" width="983px" style="border: solid 1px lightgray" />
 
 You can also download a CSV of the data using the link at the bottom of the page.
 
-![Downloading data to a CSV](doc/images/csv.png)
+<img alt="Downloading data to a CSV" src="doc/images/csv.png" width="343px" style="border: solid 1px lightgray" />
