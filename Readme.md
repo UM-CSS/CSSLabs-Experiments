@@ -7,8 +7,8 @@ You can also use this lab to re-analyze the data from the original study `[1]`.
 
 ## Experiment
 To run the experiment, follow the instructions
-[here](cultural_markets/Readme.md) to install and run the `cultural_markets`
-module for oTree.
+[here](https://github.com/UM-CSS/CSSLabs-Experiments/blob/master/cultural_market/Readme.md)
+to install and run the `cultural_markets` module for oTree.
 
 ## Analysis
 ### Requirements
