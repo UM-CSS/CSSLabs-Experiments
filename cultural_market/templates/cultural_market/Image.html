@@ -1,18 +1,28 @@
-<div id="artifact-{{ artifact.num }}" class="col-xs-{{ width }}" image">
-    <div class="thumbnail">
-    <div class="description">
-        <h3><a class="play-media play-media-{{ artifact.num }}" href="#media-player-{{ artifact.num }}" data-toggle="modal">{{ artifact.label }}</a></h3>
-        <ul class="stats">
-            {% if config.show_views %}
-                <li><strong>Views:</strong> <span id="view-count-{{ artifact.num }}">{{ artifact.view_count }}</span></li>
-            {% endif %}
-            {% if config.show_downloads %}
-                <li><strong>Downloads:</strong> <span id="download-count-{{ artifact.num }}">{{ artifact.download_count }}</li>
-            {% endif %}
-            {% if config.show_ratings %}
-                <li><strong>Rating:</strong> {{ artifact.mean_rating }}</li>
-            {% endif %}
-        </ul>
-    </div>
-    </div>
-</div>
+<td id="artifact-{{ artifact.num }}" class="col-xs-{{ width }}" image">
+    <span class="rank">
+        {% if world != 0 %}
+        {{ artifact.num }}.
+        {% endif %}
+    </span>
+    <span class="artifact-label">
+        <a class="play-media play-media-{{ artifact.num }}" href="#media-player-{{ artifact.num }}" data-toggle="modal">{{ artifact.label }}</a>
+    </span>
+    <div class="stats">
+        <span class="view" id="view-count-{{ artifact.num }}"
+              {% if not config.show_views or world == 0 %} style="visibility:hidden"{% endif %}
+        >
+            {{ artifact.view_count }}
+        </span>
+        <span class="rating" id="rating-{{ artifact.num }}"
+              {% if not config.show_ratings or world == 0 %} style="visibility:hidden"{% endif %}
+        >
+            {{ artifact.mean_rating }}
+        </span>
+        <span class="download" id="download-count-{{ artifact.num }}"
+              {% if not config.show_downloads or world == 0 %} style="visibility:hidden"{% endif %}
+        >
+            {{ artifact.download_count }}
+        </span>
+    <div class="stats">
+    </span>
+</td>

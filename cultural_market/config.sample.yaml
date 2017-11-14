@@ -8,7 +8,7 @@ num_columns: 2
 
 # Which information to display to users in experimental group
 # Options: True, False
-show_views: False
+show_views: True
 show_downloads: True
 show_ratings: True
 

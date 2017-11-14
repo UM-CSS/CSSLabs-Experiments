@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                The following page contains a list of web comics.
+                You can click a comic to view it.
+                For each comic you view, please rate it 1-5, with 5 being the best.
+                You can also click the "download" link to save a copy of the comic.
+            </p>
+            <p>
+                After reading these instructions, click "Next" to begin.
+            </p>
+        </div>
+    </div>
+
+    {% next_button %}
+
+{% endblock %}

@@ -53,6 +53,58 @@
     margin-left: 1em;
 }
 
+#market-image tr td {
+    background-color: #fff;
+}
+
+#market-image tr:nth-child(even) td:nth-child(odd), 
+#market-image tr:nth-child(odd) td:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#market-image .stats {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    margin-right: 1em;
+}
+#market-image .rank {
+    display: inline-block;
+    width: 2em;
+    text-align: right;
+    float: left;
+    padding-right: 0.5em;
+}
+#market-image .artifact-label {
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 13em;
+    min-width: 12em;
+    display: block;
+}
+#market-image .view {
+    display: inline-block;
+    width: 4em;
+    text-align: center;
+}
+#market-image .download {
+    display: inline-block;
+    width: 4em;
+    text-align: center;
+}
+#market-image .rating {
+    display: inline-block;
+    width: 4em;
+    text-align: center;
+}
+#market-image td, th {
+    position: relative;
+}
+#market-image td {
+    border-left: solid 2px #666;
+    border-right: solid 2px #666;
+}
+
 .debug {
     display: none;
 }

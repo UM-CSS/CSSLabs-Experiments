@@ -1,4 +1,5 @@
 from operator import itemgetter
+import math
 import random
 
 import otree
@@ -29,8 +30,11 @@ class Main(Page):
             "num_worlds": Constants.num_worlds,
             "show_views": Constants.show_views,
             "show_downloads": Constants.show_downloads,
-            "show_ratings": Constants.show_ratings
+            "show_ratings": Constants.show_ratings,
+            "title": Constants.title
         }
+        
+        # Generate artifact list and related variables
         artifacts = [
             {
                 "rating_field": context["form"]["rating_{}".format(i)],
@@ -47,12 +51,12 @@ class Main(Page):
             artifacts[i]['rating_count'] = a["world_rating_count"][self.player.world]
             artifacts[i]['start_rating'] = a["world_start_rating"][self.player.world]
         context["num_artifacts"] = len(artifacts)
-        context["show_views"] = Constants.show_views
-        context["show_downloads"] = Constants.show_downloads
-        context["show_ratings"] = Constants.show_ratings
-        context["title"] = Constants.title
+        
+        # Included varaibles generated for this player's subsession
         context["world"] = self.player.world
         
+        # Calculate views, downloads, and rating
+        # This would make a lot more sense in a model class, sorry! -Ed
         player_fields = _get_table_fields(Player)
         Subsession = models_module = otree.common_internal.get_models_module('cultural_market').Subsession
         rows = []
@@ -95,24 +99,27 @@ class Main(Page):
             artifacts = sorted(artifacts, key=itemgetter("random"), reverse=True)
         else:
             artifacts = sorted(artifacts, key=itemgetter(Constants.sort_by), reverse=True)
-        try:
-            context["width"] = {
-                1: "12", 2: "6", 3: "4", 4: "3"
-            }[Constants.num_columns]
-            context["artifacts"] = []
-            artifacts = list(reversed(artifacts))
-            while len(artifacts) > 0:
-                row = []
-                for i in range(Constants.num_columns):
-                    try:
-                        row.append(artifacts.pop())
-                    except IndexError:
-                        break
-                context["artifacts"].append(row)
-                
-        except KeyError:
-            context["width"] = 12
-            context["artifacts"] = artifacts
+
+        # Insert values related to artifact layout
+        num_rows = int(math.ceil(float(len(artifacts)) / Constants.num_columns))
+        context["num_columns"] = Constants.num_columns
+        context["num_rows"] = num_rows
+        context["column_ids"] = range(Constants.num_columns)
+        # Sort artifacts into 2-D list ([row][col]) based on number of columns
+        # It's easiest to construct in [col][row] order and then transpose
+        artifacts = list(reversed(artifacts))
+        artifacts_by_col = []
+        while len(artifacts) > 0:
+            row = []
+            for i in range(num_rows):
+                try:
+                    row.append(artifacts.pop())
+                except IndexError:
+                    break
+            artifacts_by_col.append(row)
+        artifacts_by_row = list(zip(*artifacts_by_col))
+        context["artifacts_by_row"] = artifacts_by_row
+        
         return context
 
 class Survey(Page):
@@ -122,8 +129,11 @@ class Survey(Page):
 class ThankYou(Page):
     pass
 
+class Instructions(Page):
+    pass
 
 page_sequence = [
+    Instructions,
     Main,
     Survey,
     ThankYou

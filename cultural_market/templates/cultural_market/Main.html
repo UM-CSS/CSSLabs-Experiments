@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block title %}
-    {{ title }}
 {% endblock %}
 
 {% block content %}
@@ -59,31 +58,56 @@ $(document).ready(function () {
 
 <div id="market-image">
     
-    <div class="row">
-        <div class="col-md-12">
-            <p>
-                This page contains a list of images you might find interesting.
-                Click image titles to open them.
-            </p>
-            <p class="debug">
-                DEBUG: World {{ world }}
-            </p>
-        </div>
-    </div>
+    <div class="debug">DEBUG: World {{ world }}</div>
     
-    {% for artifact_row in artifacts %}
+    {% for artifact_row in artifacts_by_row %}
         {% for a in artifact_row %}
             {% include 'cultural_market/ImagePlayer.html' with artifact=a config=config %}
         {% endfor %}
     {% endfor %}
     
-    {% for artifact_row in artifacts %}
-        <div class="row">
-        {% for a in artifact_row %}
-            {% include "cultural_market/Image.html" with artifact=a config=config width=width%}
-        {% endfor %}
-        </div>
-    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                {% for column_id in column_ids %}
+                <th>
+                    <span class="rank"
+                        {% if world == 0 %} style="visibility:hidden;" {% endif %}
+                    >
+                        &nbsp;<br/>#
+                    </span>
+                    <span class="artifact-label"></span>
+                    <div class="stats">
+                        <span class="view">
+                            {% if config.show_views and world != 0 %}
+                            Views
+                            {% endif %}
+                        </span>
+                        <span class="rating">
+                            {% if config.show_ratings and world != 0 %}
+                            Rating
+                            {% endif %}
+                        </span>
+                        <span class="download">
+                            {% if config.show_downloads and world != 0 %}
+                            Down-<br/>loads
+                            {% endif %}
+                        </span>
+                    </div>
+                </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for artifact_row in artifacts_by_row %}
+            <tr>
+                {% for a in artifact_row %}
+                    {% include "cultural_market/Image.html" with artifact=a config=config width=width%}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     
 </div>
 
