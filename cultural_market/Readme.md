@@ -7,7 +7,7 @@ These instructions will assume you are running oTree on a Linux-based system.
 ### 1. Install oTree
 This experiment requires a web server with a working installation of oTree.
 Instructions to install oTree on Linux, OS X, and Windows can be found
-in the [https://otree.readthedocs.io/en/latest/install.html](oTree documentation).
+in the [oTree documentation](https://otree.readthedocs.io/en/latest/install.html).
 Make sure to set a password for the admin settings.
 
 ### 2. Download the experiment
