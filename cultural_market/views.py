@@ -20,7 +20,9 @@ class Main(Page):
             ["rating_" + str(i) for i in range(Constants.num_artifacts)]
             + ["view_" + str(i) for i in range(Constants.num_artifacts)]
             + ["download_" + str(i) for i in range(Constants.num_artifacts)]
-            + ["time_ms_" + str(i) for i in range(Constants.num_artifacts)])
+            + ["time_ms_" + str(i) for i in range(Constants.num_artifacts)]
+            + ["position_" + str(i) for i in range(Constants.num_artifacts)])
+        
         return fields
     
     def get_context_data(self, **kwargs):
@@ -99,11 +101,10 @@ class Main(Page):
             artifacts = sorted(artifacts, key=itemgetter("random"), reverse=True)
         else:
             artifacts = sorted(artifacts, key=itemgetter(Constants.sort_by), reverse=True)
+        for rank, a in enumerate(artifacts):
+            a["rank"] = rank + 1
 
         # Insert values related to artifact layout
-        num_rows = int(math.ceil(float(len(artifacts)) / Constants.num_columns))
-        context["num_columns"] = Constants.num_columns
-        context["num_rows"] = num_rows
         context["column_ids"] = range(Constants.num_columns)
         # Sort artifacts into 2-D list ([row][col]) based on number of columns
         # It's easiest to construct in [col][row] order and then transpose
@@ -111,7 +112,7 @@ class Main(Page):
         artifacts_by_col = []
         while len(artifacts) > 0:
             row = []
-            for i in range(num_rows):
+            for i in range(Constants.num_rows):
                 try:
                     row.append(artifacts.pop())
                 except IndexError:

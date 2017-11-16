@@ -14,9 +14,10 @@
                 <div class="row">
                     <div class="col-md-10">
                         {% formfield artifact.rating_field with label="Rating" %}
-                        <input type="hidden" name="view_{{ artifact.num }}" id="id_view_{{ artifact.num }}" default="0"/>
-                        <input type="hidden" name="download_{{ artifact.num }}" id="id_download_{{ artifact.num }}" default="0"/>
-                        <input type="hidden" name="time_ms_{{ artifact.num }}" id="id_time_ms_{{ artifact.num }}" default="0"/>
+                        <input type="hidden" name="view_{{ artifact.num }}" id="id_view_{{ artifact.num }}" value="0"/>
+                        <input type="hidden" name="download_{{ artifact.num }}" id="id_download_{{ artifact.num }}" value="0"/>
+                        <input type="hidden" name="time_ms_{{ artifact.num }}" id="id_time_ms_{{ artifact.num }}" value="0"/>
+                        <input type="hidden" name="position_{{ artifact.num }}" id="position_{{ artifact.num }}" value="{{ artifact.rank }}"/>
                         <div>
                             <a class="download-{{ artifact.num }}" href="{{ artifact.url }}" download="{{ artifact.filename }}">Download</a>
                         </div>

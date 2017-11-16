@@ -1,3 +1,4 @@
+import math
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
@@ -47,11 +48,15 @@ class Constants(object):
         a["world_rating_count"] = parse_world_counts(num_worlds, a.get("rating_count", 0))
         a["world_start_rating"] = parse_world_ratings(num_worlds, a.get("start_rating", 3))
     num_artifacts = len(artifacts)
+    num_rows = int(math.ceil(float(num_artifacts) / num_columns))
 
 class Subsession(BaseSubsession):
     def creating_session(self):
         for p in self.get_players():
             p.world = random.randint(0, Constants.num_worlds - 1)
+            p.cols = Constants.num_columns
+            p.rows = Constants.num_rows
+            p.direction = "down,right"
 
 class Group(BaseGroup):
     pass
@@ -67,8 +72,12 @@ class Player(BasePlayer):
         locals()["view_" + str(i)] = models.IntegerField(blank=True)
         locals()["download_" + str(i)] = models.IntegerField(blank=True)
         locals()["time_ms_" + str(i)] = models.IntegerField(blank=True)
-    world = models.IntegerField(initial=0)
+        locals()["position_" + str(i)] = models.IntegerField()
     del i
+    world = models.IntegerField(initial=0)
+    rows = models.IntegerField()
+    cols = models.IntegerField()
+    direction = models.TextField()
     
     comments = models.TextField(verbose_name='Comments:', blank=True)
     

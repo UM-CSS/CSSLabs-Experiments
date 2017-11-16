@@ -58,7 +58,11 @@ $(document).ready(function () {
 
 <div id="market-image">
     
-    <div class="debug">DEBUG: World {{ world }}</div>
+    <div class="debug">World {{ world }}</div>
+    
+    <input type="hidden" name="rows" id="id_rows" value="{{ num_rows }}"/>
+    <input type="hidden" name="cols" id="id_cols" value="{{ num_columns }}"/>
+    <input type="hidden" name="direction" id="id_direction" value="down,right"/>
     
     {% for artifact_row in artifacts_by_row %}
         {% for a in artifact_row %}
@@ -71,7 +75,7 @@ $(document).ready(function () {
             <tr>
                 {% for column_id in column_ids %}
                 <th>
-                    <span class="rank"
+                    <span class="rank"cal
                         {% if world == 0 %} style="visibility:hidden;" {% endif %}
                     >
                         &nbsp;<br/>#
