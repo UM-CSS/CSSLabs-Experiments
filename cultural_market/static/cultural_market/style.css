@@ -10,12 +10,17 @@
     margin-top: 0;
 }
 #market-image .media-player .modal-dialog {
-    width: 620px;
+    min-width: 95%;
 }
 #market-image .media-player .modal-body {
     max-height: 400px;
     overflow: scroll;
     width: 100%;
+}
+#market-image .media-player .modal-body img {
+    display: block;
+    max-width: 100%;
+    margin: auto;
 }
 #market-image .media-player .modal-footer {
     text-align:left;
