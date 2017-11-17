@@ -21,7 +21,8 @@ class Main(Page):
             + ["view_" + str(i) for i in range(Constants.num_artifacts)]
             + ["download_" + str(i) for i in range(Constants.num_artifacts)]
             + ["time_ms_" + str(i) for i in range(Constants.num_artifacts)]
-            + ["position_" + str(i) for i in range(Constants.num_artifacts)])
+            + ["position_" + str(i) for i in range(Constants.num_artifacts)]
+            + ["user_agent"])
         
         return fields
     

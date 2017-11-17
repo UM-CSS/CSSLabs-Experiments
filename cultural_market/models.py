@@ -78,6 +78,7 @@ class Player(BasePlayer):
     rows = models.IntegerField()
     cols = models.IntegerField()
     direction = models.TextField()
+    user_agent = models.TextField()
     
     comments = models.TextField(verbose_name='Comments:', blank=True)
     

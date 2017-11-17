@@ -53,6 +53,7 @@ $(document).ready(function () {
         $(".download-" + i).click(getDownloadHandler(i));
         timeOnArtifact.push(0);
     }
+    $('#id_user_agent').val(navigator.userAgent);
 });
 </script>
 
@@ -60,9 +61,7 @@ $(document).ready(function () {
     
     <div class="debug">World {{ world }}</div>
     
-    <input type="hidden" name="rows" id="id_rows" value="{{ num_rows }}"/>
-    <input type="hidden" name="cols" id="id_cols" value="{{ num_columns }}"/>
-    <input type="hidden" name="direction" id="id_direction" value="down,right"/>
+    <input type="hidden" name="user_agent" id="id_user_agent"/>
     
     {% for artifact_row in artifacts_by_row %}
         {% for a in artifact_row %}
