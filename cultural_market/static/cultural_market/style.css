@@ -59,6 +59,12 @@
     margin-left: 1em;
 }
 
+#market-image table {
+    width: auto;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
 #market-image tbody {
     border-bottom: solid 2px gray;
 }
@@ -98,7 +104,6 @@
     display: inline-block;
     margin-left: 2em;
     margin-right: 13em;
-    min-width: 12em;
     display: block;
 }
 #market-image .view {
