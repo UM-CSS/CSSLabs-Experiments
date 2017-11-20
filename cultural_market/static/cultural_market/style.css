@@ -13,13 +13,14 @@
     min-width: 95%;
 }
 #market-image .media-player .modal-body {
-    max-height: 400px;
+    height: 400px;
     overflow: scroll;
     width: 100%;
 }
 #market-image .media-player .modal-body img {
     display: block;
     max-width: 100%;
+    max-height: 300%;
     margin: auto;
 }
 #market-image .media-player .modal-footer {
@@ -58,6 +59,19 @@
     margin-left: 1em;
 }
 
+#market-image tbody {
+    border-bottom: solid 2px gray;
+}
+
+#market-image th {
+    border-bottom: solid 2px gray;
+}
+
+#market-image td,
+#market-image th {
+    padding: 1px 8px;
+}
+
 #market-image tr td {
     background-color: #fff;
 }
@@ -70,7 +84,7 @@
 #market-image .stats {
     position: absolute;
     right: 0;
-    top: 8px;
+    top: 1px;
     margin-right: 1em;
 }
 #market-image .rank {

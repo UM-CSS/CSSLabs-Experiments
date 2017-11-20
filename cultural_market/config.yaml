@@ -24,15 +24,6 @@ artifacts:
     # Each artifact must have at least a label and a url
     - label: War and Peas
       url: https://linsedition.files.wordpress.com/2017/11/war-and-peas-good-girl.jpg
-      # Initial counts and ratings can be specified as an array with one entry for each world
-      # or as a single number used by all worlds
-      view_count:
-        - 100
-        - 200
-        - 300
-      download_count: 10
-      rating_count: 1
-      rating: 5
     - label: That Comic Thing
       url: https://i.redd.it/bbbb51isscwz.jpg
     - label: Sinewyn
@@ -55,4 +46,76 @@ artifacts:
       url: https://charmysarmy.files.wordpress.com/2017/11/11nov2017_charmy-week-45-1105-1011-color-stacked-web.jpg?w=750
     - label: Don't Be Dad
       url: https://i.redditmedia.com/nxGGuCii-WawI_WXGTqq1m-0s72auE0Drhw8RymoXmc.png?w=768&s=ed0c54fdbf9c21786f77a1b651f64c80
+    - label: Medium Well Rare
+      url: https://i.redditmedia.com/aPBCiEkTt_HLX_NdvrBPFieJFczvFf40SLcwAFWLpDc.jpg?w=768&s=75378bb2f8953fe8e9ac41e9b030538e
+    - label: Infinite Immortal Bens
+      url: https://i.imgur.com/SZvC77c.jpg
+    - label: Stbeals
+      url: https://static1.squarespace.com/static/52707553e4b093a68b38cea0/t/5a129c77ec212df525c15e52/1511169169320/adult-children_706.jpg?format=750w
+    - label: Marriage is Bliss
+      url: https://i.redd.it/y1jfcgl3k4zz.jpg
+    - label: Frivoleqsque
+      url: http://frivolesque.com/wp-content/uploads/2017/11/FRIV0229.png
+    - label: Myth Direction
+      url: https://i.imgur.com/sLUGRxe.png
+    - label: Indecision
+      url: https://i.redd.it/qnclsa5x25zz.jpg
+    - label: Legacy Control
+      url: https://i.redd.it/d9k8lav8w4zz.jpg
+    - label: Magnificatz
+      url: https://i.redd.it/jtvp057eu4zz.jpg
+    - label: RGBots
+      url: https://i1.wp.com/www.rgbots.com/wp-content/uploads/2017/11/wikispeak.jpg?fit=1040%2C740
+    - label: Stuffed Nature
+      url: https://i0.wp.com/stuffednature.com/wp-content/uploads/2017/11/ep.57.jpg?fit=800%2C1000
+    - label: Mr. Simple
+      url: http://78.media.tumblr.com/af727ad896cee834d71f545c690c1831/tumblr_ozp08vFsfr1w015fvo1_1280.png
+    - label: Rhapsodies
+      url: http://rhapsodies.wpmorse.com/wp-content/uploads/2017/11/2017-11-20.gif
+    - label: The Wizard of Quippley
+      url: http://www.talesofmaora.com/comics/2017-11-20-woq-2017-11-20.jpg
+    - label: Anti-Lullaby
+      url: http://blackandwhitecomic.com/images/nov17-2017.png
+    - label: Adventures of Ty
+      url: https://i0.wp.com/www.adventuresofty.com/wp-content/uploads/2017/11/adventures-of-ty-2017-11-20-eggs-benedict-arnold-color.jpg?resize=1024%2C396
+    - label: Virtual Wombat
+      url: https://virtualwombat-com.exactdn.com/wp-content/uploads/2017/11/The-Evolution-of-Virtual-1Wombat-Sabretooth.png?fit=640%2C2880&ssl=1
+    - label: Sugar Crush
+      url: https://www.whompcomic.com/comics/1511142520-2017-11-18-Sugar-Crush.jpg
+    - label: Salvadora
+      url: http://salvadoracomic.com/wp-content/uploads/2017/11/intense-investigation-3.png
+    - label: Cancer Owl
+      url: https://i.imgur.com/d3z6TOA.jpg
+    - label: SADBOY
+      url: https://i.imgur.com/U60MTYW.jpg
+    - label: The Fuzzy Princess
+      url: http://fuzzy-princess.com/image/167688179105
+    - label: Two Leaf Clover
+      url: https://i.redditmedia.com/EiLLo3tzIuFk2MyWKIrBhtpLOu2HFE1IU5BvJDlbrWg.png?w=566&s=65b304b85bc43e3b60a71cd9b25825cc
+    - label: Tales of Absurdity
+      url: https://i.imgur.com/CLzvcmw.jpg
+    - label: Mimsy Comics
+      url: https://i.redditmedia.com/NncySjL7YMRh83Pn_tB11rI8ohWEEYo4uGXAS-ukBCY.jpg?w=768&s=11a7ab8f4fdac61ad97a5d7e696544af
+    - label: Rev Fits
+      url: http://revfitz.com/comic/issue347/
+    - label: Blacktail and Marz
+      url: http://blacktailandmarz.thecomicseries.com/images/comics/142/28127a1511069814f40569293.jpg
+    - label: Heist
+      url: https://i.redd.it/ogxmktxbaqyz.png
+    - label: In 4 Panels
+      url: https://i.redd.it/cgbn91hc7zyz.jpg
+    - label: PuPPets
+      url: https://i.redd.it/42uipfpck0zz.jpg
+    - label: IDGNoRe
+      url: http://idontgetnorespect.com/wp-content/uploads/2017/11/Where-did-I-put-those.png
+    - label: Harley Weekends
+      url: https://i.redd.it/q4gh54bcbxyz.jpg
+    - label: Turkey vs Thanksgiving
+      url: https://i.imgur.com/EQTw2WA.png
+    - label: Sketchbook Silliness
+      url: https://i.imgur.com/XQ4xASI.jpg
+    - label: Far From Reality
+      url: https://i.imgur.com/63ZJuDh.jpg
+    - label: CB
+      url: https://i.redd.it/89b9qdh6enyz.png
 
