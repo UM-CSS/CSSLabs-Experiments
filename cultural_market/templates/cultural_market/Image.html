@@ -16,7 +16,7 @@
         <span class="rating" id="rating-{{ artifact.num }}"
               {% if not config.show_ratings or world == 0 %} style="visibility:hidden"{% endif %}
         >
-            {{ artifact.mean_rating }}
+            {{ artifact.display_mean_rating |safe }}
         </span>
         <span class="download" id="download-count-{{ artifact.num }}"
               {% if not config.show_downloads or world == 0 %} style="visibility:hidden"{% endif %}

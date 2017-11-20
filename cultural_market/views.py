@@ -42,7 +42,7 @@ class Main(Page):
             {
                 "rating_field": context["form"]["rating_{}".format(i)],
                 "true_rating_count": 0,
-                "total_rating": 0,
+                "true_total_rating": 0,
                 "random": random.random()
             }
             for i in range(Constants.num_artifacts)]
@@ -52,6 +52,7 @@ class Main(Page):
             artifacts[i]['view_count'] = a["world_view_count"][self.player.world]
             artifacts[i]['download_count'] = a["world_download_count"][self.player.world]
             artifacts[i]['rating_count'] = a["world_rating_count"][self.player.world]
+            artifacts[i]['start_rating_count'] = a["world_rating_count"][self.player.world]
             artifacts[i]['start_rating'] = a["world_start_rating"][self.player.world]
         context["num_artifacts"] = len(artifacts)
         
@@ -76,7 +77,7 @@ class Main(Page):
                     a = artifacts[i]
                     # Sum and count all real ratings
                     try:
-                        a["total_rating"] += player["rating_{}".format(i)]
+                        a["true_total_rating"] += player["rating_{}".format(i)]
                         a["true_rating_count"] += 1
                     except TypeError:
                         pass
@@ -92,12 +93,14 @@ class Main(Page):
             a = artifacts[i]
             try:
                 # Figure out mean for real ratings
-                m = float(a["total_rating"]) / float(a["true_rating_count"])
+                m = float(a["true_total_rating"]) / float(a["true_rating_count"])
                 a["mean_rating"] = (
-                    (m*float(a["true_rating_count"]) + a["start_rating"]*a["rating_count"])
-                    / (float(a["true_rating_count"]) + float(a["rating_count"])))
+                    (m*float(a["true_rating_count"]) + a["start_rating"]*a["start_rating_count"])
+                    / (float(a["true_rating_count"]) + float(a["start_rating_count"])))
+                a["display_mean_rating"] = a["mean_rating"]
             except ZeroDivisionError:
-                a["mean_rating"] = a["start_rating"]
+                a["mean_rating"] = 0
+                a["display_mean_rating"] = '&mdash;'
         if context["player"].world == 0:
             artifacts = sorted(artifacts, key=itemgetter("random"), reverse=True)
         else:

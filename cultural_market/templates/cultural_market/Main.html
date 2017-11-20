@@ -43,6 +43,19 @@ var getCloseHandler = function (artifact) {
         $("#id_time_ms_" + artifact).val(timeOnArtifact[artifact])
     };
 };
+var getRatingHandler = function (artifact) {
+    return function () {
+        var true_total = parseFloat($("#true_total_rating_" + artifact).val());
+        var start_rating = parseFloat($("#start_rating_" + artifact).val());
+        var start_count = parseFloat($("#start_rating_count_" + artifact).val());
+        var true_count = parseFloat($("#true_rating_count_" + artifact).val());
+        var my_rating = parseFloat($("input[name=rating_" + artifact + "]:checked").val());
+        var rating = (
+            (true_total + start_count*start_rating + my_rating)
+            / (true_count + start_count + 1));
+        $('#rating-' + artifact).html(rating);
+    };
+};
 timeOnArtifact = []
 var startTime;
 $(document).ready(function () {
@@ -50,6 +63,7 @@ $(document).ready(function () {
         $(".play-media-" + i).click(getViewHandler(i));
         $("#media-player-" + i + " .close").click(getCloseHandler(i));
         $("#media-player-" + i + " .done").click(getCloseHandler(i));
+        $("input[type=radio][name=rating_" + i + "]").change(getRatingHandler(i));
         $(".download-" + i).click(getDownloadHandler(i));
         timeOnArtifact.push(0);
     }
