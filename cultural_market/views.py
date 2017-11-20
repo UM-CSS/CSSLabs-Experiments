@@ -101,6 +101,8 @@ class Main(Page):
         if context["player"].world == 0:
             artifacts = sorted(artifacts, key=itemgetter("random"), reverse=True)
         else:
+            # Start with a random sort so that ties are broken randomly
+            artifacts = sorted(artifacts, key=itemgetter("random"), reverse=True)
             artifacts = sorted(artifacts, key=itemgetter(Constants.sort_by), reverse=True)
         for rank, a in enumerate(artifacts):
             a["rank"] = rank + 1
