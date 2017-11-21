@@ -11,6 +11,12 @@
 {% block content %}
 
 <script type="text/javascript">
+window.onbeforeunload = function(e) {
+    if (e.target.activeElement.tagName.toLowerCase() == 'button') {
+        return null;
+    }
+    return 'Are you sure you want to leave this page? If you do not complete the survey, your ratings will be lost.';
+};
 numArtifacts = {{ num_artifacts }};
 var getViewHandler = function (artifact) {
     var viewed = false;
