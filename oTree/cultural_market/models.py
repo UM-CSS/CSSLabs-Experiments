@@ -46,7 +46,7 @@ class Constants(object):
         a["world_view_count"] = parse_world_counts(num_worlds, a.get("view_count", 0))
         a["world_download_count"] = parse_world_counts(num_worlds, a.get("download_count", 0))
         a["world_rating_count"] = parse_world_counts(num_worlds, a.get("rating_count", 0))
-        a["world_start_rating"] = parse_world_ratings(num_worlds, a.get("start_rating", 3))
+        a["world_start_rating"] = parse_world_ratings(num_worlds, a.get("rating", 3))
     num_artifacts = len(artifacts)
     num_rows = int(math.ceil(float(num_artifacts) / num_columns))
 
@@ -79,6 +79,4 @@ class Player(BasePlayer):
     cols = models.IntegerField()
     direction = models.TextField()
     user_agent = models.TextField()
-    
-    comments = models.TextField(verbose_name='Comments:', blank=True)
-    
+        

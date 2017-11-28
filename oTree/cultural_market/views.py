@@ -93,7 +93,10 @@ class Main(Page):
             a = artifacts[i]
             try:
                 # Figure out mean for real ratings
-                m = float(a["true_total_rating"]) / float(a["true_rating_count"])
+                try:
+                    m = float(a["true_total_rating"]) / float(a["true_rating_count"])
+                except ZeroDivisionError:
+                    m = 0
                 a["mean_rating"] = (
                     (m*float(a["true_rating_count"]) + a["start_rating"]*a["start_rating_count"])
                     / (float(a["true_rating_count"]) + float(a["start_rating_count"])))
@@ -129,19 +132,10 @@ class Main(Page):
         
         return context
 
-class Survey(Page):
-    form_model = models.Player
-    form_fields = ['comments']
-
-class ThankYou(Page):
-    pass
-
 class Instructions(Page):
     pass
 
 page_sequence = [
     Instructions,
-    Main,
-    Survey,
-    ThankYou
+    Main
 ]
