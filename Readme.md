@@ -255,7 +255,7 @@ port, e.g., `8000`.
 Open the oTree admin webpage in a web browser.
 Navigate to the `Sessions` tab and click the `Create new session` button.
 
-<img alt="Adding a session" src="doc/images/add-session.png" width="769px" />
+<img alt="Adding a session" src="doc/images/add-session.png" width="769px" style="border:solid 4px lightgray;"/>
 
 Select "Social Influence in Cultural Markets" from the dropdown list.
 Also enter the maximum number of participants.
@@ -264,14 +264,14 @@ minutes to create the session.
 The orginal Salganik and Watts study used 8206 participants.
 Finally, click `Create`.
 
-<img alt="Configuring a new session" src="doc/images/session.png" width="394px" style="border: solid 1px lightgray" />
+<img alt="Configuring a new session" src="doc/images/session.png" width="394px" style=" style="border:solid 4px lightgray;" />
 
 ### Sending links to participants
 Once the session is created, oTree will generate two types of links:
 a single persistent link that can be sent to all players,
 and a single-use link for each participant.
 
-<img alt="Getting participant links" src="doc/images/links.png" width="974px" style="border: solid 1px lightgray" />
+<img alt="Getting participant links" src="doc/images/links.png" width="974px" style=" style="border:solid 4px lightgray;" />
 
 Single-use links can only be used once, but if a participant clicks a persistent link multiple times or
 uses the back button on their browser, they may be able to participate multiple times.
@@ -281,11 +281,11 @@ You can view the experiment data online by clicking the `Data` tab.
 Note that this may take some time to load depending on how many participants are
 configured for the experiment.
 
-<img alt="Viewing data online" src="doc/images/data.png" width="983px" style="border: solid 1px lightgray" />
+<img alt="Viewing data online" src="doc/images/data.png" width="983px" style=" style="border:solid 4px lightgray;" />
 
 You can also download a CSV of the data using the link at the bottom of the page.
 
-<img alt="Downloading data to a CSV" src="doc/images/csv.png" width="343px" style="border: solid 1px lightgray" />
+<img alt="Downloading data to a CSV" src="doc/images/csv.png" width="343px" style=" style="border:solid 4px lightgray;" />
 
 When you have downloaded the CSV file, you can place it in the `data/` directory and analyze it
 using the included python notebook, as described in the first section.
