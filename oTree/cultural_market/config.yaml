@@ -16,9 +16,6 @@ show_ratings: True
 # Options: view_count, download_count, mean_rating, random
 sort_by: mean_rating
 
-# The title to display on the gallery page
-title: Comic Gallery
-
 # List of artifacts to display on the gallery page
 artifacts:
     # Each artifact must have at least a label and a url
