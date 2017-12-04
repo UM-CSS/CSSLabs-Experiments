@@ -7,25 +7,25 @@ and the analysis uses python in a jupyter notebook.
 You can also use this lab to re-analyze the data from the original study [SDW2006].
 
 ## Contents
-1. [Analysis](#Analysis)
-    1. [Setup](#Setup)
-    1. [Requirements](#Requirements)
-    1. [Descriptive statistics](#Descriptive-statistics)
-    1. [Gini coefficient](#Gini-coefficient)
-    1. [Market share](#Market-share)
-    1. [Unpredictability](#Unpredictability)
-1. [Experiment](#Experiment)
-    1. [Installing oTree](#Installing-oTree)
-    1. [Downloading the experiment](#Downloading-the-experiment)
-    1. [Creating an oTree project](#Creating-an-oTree-proeject)
-    1. [Creating links to experiment modules](#Creating-links-to-experiment-modules)
-    1. [Adding experiment to oTree settings](#Adding-experiment-to-oTree-settings)
-    1. [Experimental design](#Experimental-design)
-    1. [Creating oTree database](#Creating-oTree-database)
-    1. [Creating a session](#Creating-a-session)
-    1. [Sending links to participants](#Sending-links-to-participants)
-    1. [Downloading data](#Downloading-data)
-1. [Referenes(#References)]
+1. [Analysis](#analysis)
+    1. [Setup](#setup)
+    1. [Requirements](#requirements)
+    1. [Descriptive statistics](#descriptive-statistics)
+    1. [Gini coefficient](#gini-coefficient)
+    1. [Market share](#market-share)
+    1. [Unpredictability](#unpredictability)
+1. [Experiment](#experiment)
+    1. [Installing oTree](#installing-oTree)
+    1. [Downloading the experiment](#downloading-the-experiment)
+    1. [Creating an oTree project](#creating-an-otree-proeject)
+    1. [Creating links to experiment modules](#creating-links-to-experiment-modules)
+    1. [Adding experiment to oTree settings](#adding-experiment-to-otree-settings)
+    1. [Experimental design](#experimental-design)
+    1. [Creating oTree database](#creating-oTree-database)
+    1. [Creating a session](#creating-a-session)
+    1. [Sending links to participants](#sending-links-to-participants)
+    1. [Downloading data](#downloading-data)
+1. [Referenes(#references)]
 
 ## Analysis
 This lab includes an interactive Jupyter notebook which can be used to analyze
