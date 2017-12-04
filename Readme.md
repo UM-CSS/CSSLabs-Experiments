@@ -25,7 +25,7 @@ You can also use this lab to re-analyze the data from the original study [SDW200
     1. [Creating a session](#creating-a-session)
     1. [Sending links to participants](#sending-links-to-participants)
     1. [Downloading data](#downloading-data)
-1. [Referenes(#references)]
+1. [Referenes](#references)
 
 ## Analysis
 This lab includes an interactive Jupyter notebook which can be used to analyze
