@@ -100,7 +100,7 @@ class Main(Page):
                 a["mean_rating"] = (
                     (m*float(a["true_rating_count"]) + a["start_rating"]*a["start_rating_count"])
                     / (float(a["true_rating_count"]) + float(a["start_rating_count"])))
-                a["display_mean_rating"] = a["mean_rating"]
+                a["display_mean_rating"] = "{0:.2f}".format(a["mean_rating"])
             except ZeroDivisionError:
                 a["mean_rating"] = 0
                 a["display_mean_rating"] = '&mdash;'
