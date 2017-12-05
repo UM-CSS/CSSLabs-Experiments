@@ -60,8 +60,8 @@ var getRatingHandler = function (artifact) {
             (true_total + start_count*start_rating + my_rating)
             / (true_count + start_count + 1));
         var rating_string = new String(rating)
-        if (rating.length > 4) {
-            rating.length = 4
+        if (rating_string.length > 4) {
+            rating_string = rating_string.substring(0, 4)
         }
         $('#rating-' + artifact).html(rating_string);
     };
@@ -111,23 +111,23 @@ $(document).ready(function () {
                     </span>
                     <span class="artifact-label"></span>
                     <div class="stats">
+                        {% if config.show_ratings and world != 0 %}
                         <span class="rating">
-                            {% if config.show_ratings and world != 0 %}
                             &nbsp;<br/>
                             Rating
-                            {% endif %}
                         </span>
+                        {% endif %}
+                        {% if config.show_views and world != 0 %}
                         <span class="view">
-                            {% if config.show_views and world != 0 %}
                             &nbsp;<br/>
                             Views
-                            {% endif %}
                         </span>
+                        {% endif %}
+                        {% if config.show_downloads and world != 0 %}
                         <span class="download">
-                            {% if config.show_downloads and world != 0 %}
                             Down-<br/>loads
-                            {% endif %}
                         </span>
+                        {% endif %}
                     </div>
                 </th>
                 {% endfor %}

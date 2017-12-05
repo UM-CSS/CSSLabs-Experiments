@@ -9,17 +9,17 @@
     </span>
     <div class="stats">
         <span class="rating" id="rating-{{ artifact.num }}"
-              {% if not config.show_ratings or world == 0 %} style="visibility:hidden"{% endif %}
+              {% if not config.show_ratings or world == 0 %} style="display:none"{% endif %}
         >
             {{ artifact.display_mean_rating |safe }}
         </span>
         <span class="view" id="view-count-{{ artifact.num }}"
-              {% if not config.show_views or world == 0 %} style="visibility:hidden"{% endif %}
+              {% if not config.show_views or world == 0 %} style="display:none"{% endif %}
         >
             {{ artifact.view_count }}
         </span>
         <span class="download" id="download-count-{{ artifact.num }}"
-              {% if not config.show_downloads or world == 0 %} style="visibility:hidden"{% endif %}
+              {% if not config.show_downloads or world == 0 %} style="display:none"{% endif %}
         >
             {{ artifact.download_count }}
         </span>

@@ -54,10 +54,6 @@
     margin: 0;
     display: inline-block;
 }
-#market-image .stats li {
-    display: inline-block;
-    margin-left: 1em;
-}
 
 #market-image table {
     width: auto;
@@ -88,10 +84,7 @@
 }
 
 #market-image .stats {
-    position: absolute;
-    right: 0;
-    top: 1px;
-    margin-right: 1em;
+    display: inline-block;
 }
 #market-image .rank {
     display: inline-block;
@@ -103,8 +96,8 @@
 #market-image .artifact-label {
     display: inline-block;
     margin-left: 2em;
-    margin-right: 13em;
-    display: block;
+    width: 12em;
+    padding-right: 1em;
 }
 #market-image .view {
     display: inline-block;
