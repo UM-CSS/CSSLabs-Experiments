@@ -64,10 +64,10 @@ class Main(Page):
         player_fields = _get_table_fields(Player)
         Subsession = models_module = otree.common_internal.get_models_module('cultural_market').Subsession
         rows = []
-        for session in Session.objects.order_by('id'):
-            subsession = Subsession.objects.filter(session_id=session.id, round_number=1).values()
-            if not subsession:
-                continue
+        session = Session.objects.filter(code=self.player.session.code).values()[0]
+        print(session)
+        subsession = Subsession.objects.filter(session_id=session['id']).values()
+        if subsession:
             subsession = subsession[0]
             subsession_id = subsession['id']
             for player in Player.objects.filter(subsession_id=subsession_id).order_by('id').values():
