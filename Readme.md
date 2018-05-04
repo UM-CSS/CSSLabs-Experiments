@@ -26,6 +26,7 @@ You can also use this lab to re-analyze the data from the original study [SDW200
     1. [Sending links to participants](#sending-links-to-participants)
     1. [Downloading data](#downloading-data)
 1. [Referenes](#references)
+1. [License](#license)
 
 ## Analysis
 This lab includes an interactive Jupyter notebook which can be used to analyze
@@ -303,3 +304,7 @@ _Social Psychology Quarterly_, 71(4), 338-355.
 [CSW2016] Chen, D.L., Schonger, M., & Wickens, C. (2016).
 oTree - An open-source platform for laboratory, online and field experiments.
 _Journal of Behavioral and Experimental Finance_, 9, 88-97.
+
+## License <a name="license"></a> 
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)  
+This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/).
