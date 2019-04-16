@@ -115,6 +115,7 @@ class Main(Page):
             a["rank"] = rank + 1
 
         # Insert values related to artifact layout
+        context["width"] = Constants.width
         context["column_ids"] = range(Constants.num_columns)
         # Sort artifacts into 2-D list ([row][col]) based on number of columns
         # It's easiest to construct in [col][row] order and then transpose
