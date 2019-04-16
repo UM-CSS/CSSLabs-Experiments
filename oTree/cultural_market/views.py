@@ -54,6 +54,7 @@ class Main(Page):
             artifacts[i]['rating_count'] = a["world_rating_count"][self.player.world]
             artifacts[i]['start_rating_count'] = a["world_rating_count"][self.player.world]
             artifacts[i]['start_rating'] = a["world_start_rating"][self.player.world]
+            artifacts[i]['filename'] = hash(artifacts[i]['label'])
         context["num_artifacts"] = len(artifacts)
         
         # Included varaibles generated for this player's subsession
