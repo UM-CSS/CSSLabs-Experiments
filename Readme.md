@@ -141,19 +141,40 @@ The data can be downloaded and analyzed using the included jupyter notebook
 This experiment requires a web server with a working installation of oTree.
 Instructions to install oTree on Linux, OS X, and Windows can be found
 in the [oTree documentation](https://otree.readthedocs.io/en/latest/install.html).
+When prompted, it is not necessary to install the examples.
 Make sure to set a password for the admin settings.
+The following commands have been tested on Ubuntu 16.04 with a postgres database:
+
+    sudo apt-get install python3.6 python3.6-venv python3.6-dev libpq-dev postgresql postgresql-contrib redis-server git
+    python3.6 -m venv venv_otree
+    source venv_otree/bin/activate
+    pip install -U otree
+    otree startproject oTree
+    cd oTree
+    pip install -r requirements.txt
+
+    sudo su - postgres
+    psql
+    CREATE DATABASE django_db;
+    CREATE USER otree_user WITH PASSWORD 'mydbpassword';
+    GRANT ALL PRIVILEGES ON DATABASE django_db TO otree_user;
+    \q
+    
+    exit
+    export DATABASE_URL=postgres://otree_user:mydbpassword@localhost/django_db
+
+Note that the `DATABASE_URL` line will need to be run every time you start the server
+or added to the `.bashrc` file in your home directory.
 
 ### Downloading the repository
 On your server, run the following command:
 
     git clone https://github.com/UM-CSS/CSSLabs-Experiments.git
 
-### Creating an oTree project
-Enter the following command and follow the prompts.
-It isn't necessary to install the example projects.
+You will also need to install the `yaml` module:
 
-    otree startproject oTree
-    
+    pip install pyyaml
+
 ### Creating links to experiment modules
 
     cd oTree
@@ -173,6 +194,25 @@ After this line, insert the following text:
         'num_demo_participants': 16,
         'app_sequence': ['cultural_market', 'feedback']
     },
+
+### Adding additional experimentss
+In order to run more than one experiment in parallel, it is necessary to create
+a copy of the `cultural_market` module:
+
+    cd ../CSSLabs-Experiments/oTree
+    cp -r cultural_markets cultural_markets_2
+    cd -
+
+An additional session config must be added to `settings.py` as well,
+again using an editor such as `nano`.
+
+    {
+        'name': 'cultural_market_2',
+        'display_name': "Social Influence in Cultural Markets",
+        'num_demo_participants': 16,
+        'app_sequence': ['cultural_market_2', 'feedback']
+    },
+
 
 ### Experimental design
 Many of the experimental parmaters can be modified in `config.yaml`.
@@ -251,6 +291,9 @@ If you want to use a port other than the default, change `80` to the desired
 port, e.g., `8000`.
 
     sudo -E env "PATH=$PATH" otree runprodserver 80
+
+You may also need to add `PYTHONPATH=../otree_env/lib/python3.6/site-packages` to the `env`
+string if oTree is unable to find any of the installed libraries.
 
 ### Creating a session
 Open the oTree admin webpage in a web browser.
