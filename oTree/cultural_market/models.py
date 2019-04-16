@@ -39,6 +39,7 @@ class Constants(object):
     sort_by = config.get("sort_by", "random")
     num_worlds = int(config.get("num_worlds", 8))
     num_columns = int(config.get("num_columns", 1))
+    width = {1:12, 2:6, 3:4, 4:3}[num_columns]
     title = config.get("title", "Gallery")
     
     artifacts = config["artifacts"]
