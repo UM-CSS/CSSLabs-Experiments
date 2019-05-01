@@ -49,10 +49,7 @@ The jupyter notebook requires the following packages to be installed:
 * scipy
 * pandas
 
-To analyze data from the original experiment,
-you will need to download the Cultural Market data set available at
-[http://opr.princeton.edu/archive/cm/](http://opr.princeton.edu/archive/cm/).
-The data files should be downloaded and decompressed into the `external` directory.
+A subset of the data from the original experiment is included in this lab. For the full set of data and documentation, go to [http://opr.princeton.edu/archive/cm/](http://opr.princeton.edu/archive/cm/).
 
 ### Setup
 The first section of the notebook loads the necessary libraries as well as the
