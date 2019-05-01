@@ -134,6 +134,19 @@ These instructions will assume you are running oTree on a Linux-based system.
 The data can be downloaded and analyzed using the included jupyter notebook
 (see the previous section).
 
+### Power Calculation
+The `Power Calculation.ipynb` notebook uses sampling to
+examine the unertainty in the orginal Music Lab experiment. These results can be
+used to estimate the number of responses needed to observe a discernable effect
+in the experiment results.
+This notebook may take a significant amount of time to run, so students may want
+to run it outside of classroom time and/or overnight.
+
+The gini coefficient calculation requires a large number of responses and a typical
+class should not expect to find a significant result.
+The unpredictability result can typically be found with the fewer responses and should
+be practical for a large class.
+
 ### Installing oTree
 This experiment requires a web server with a working installation of oTree.
 Instructions to install oTree on Linux, OS X, and Windows can be found
