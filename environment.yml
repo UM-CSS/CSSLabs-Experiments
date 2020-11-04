@@ -1,0 +1,10 @@
+name: experiments-environment
+channels:
+  - default
+  - conda-forge
+dependencies:
+  - pandas
+  - numpy
+  - matplotlib
+  - scipy
+  - tqdm
