@@ -8,6 +8,7 @@ You can also use this lab to re-analyze the data from the original study [SDW200
 
 ## Contents
 1. [Analysis](#analysis)
+    1. [Docker Setup](#docker-setup)
     1. [Setup](#setup)
     1. [Requirements](#requirements)
     1. [Descriptive statistics](#descriptive-statistics)
@@ -42,6 +43,43 @@ For introductory classes, students can simply run the cells containing these fun
 More advanced students may be interested in understanding the inner working of
 these functions.
 
+### Docker Setup    
+We are using [Jupyter notebook on Docker Stack](https://jupyter-docker-stacks.readthedocs.io/en/latest/) to avoid steps to install various components. With the Docker Desktop installed in above step, now we can load a docker container directly by:
+
+#### Step 0: Open your docker desktop. Stop running the container you used for previous labs.
+#### Step 1: Open a terminal on Mac OS or the Commandline Prompt on Windows
+#### Step 2: Navigate to the folder where you downloaded the lab folder
+Run the below command in your MacOS terminal or Windows Commandline Prompt 
+
+```bash
+cd "YOUR folder path (where you put the downloaded folder)!"
+```
+
+#### Step 3: Paste the following command to your terminal or Commandline Prompt
+
+- If you are a Mac user, run the following command:
+```bash
+docker run -v $(pwd):/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
+
+- If you are a Windows Command shell user, use this command:
+```bash
+docker run -v %cd%:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
+
+- If you are a Windows PowerShell user, use the following command:
+```bash
+docker run -v ${PWD}:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
+
+#### Step 4
+In YOUR terminal, find the text similar to the one below. Paste the second URL to your browser. Now you should be all set!
+```
+        Or copy and paste one of these URLs:
+            http://bda4c6f01885:8888/lab?token=b045793e8e725f79808eb241136cf80294ba94d86c8f61e4
+            http://127.0.0.1:8888/lab?token=b045793e8e725f79808eb241136cf80294ba94d86c8f61e4
+```
+
 ### Requirements
 The jupyter notebook requires the following packages to be installed:
 * python3
@@ -50,6 +88,7 @@ The jupyter notebook requires the following packages to be installed:
 * pandas
 
 A subset of the data from the original experiment is included in this lab. For the full set of data and documentation, go to [http://opr.princeton.edu/archive/cm/](http://opr.princeton.edu/archive/cm/).
+
 
 ### Setup
 The first section of the notebook loads the necessary libraries as well as the
