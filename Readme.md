@@ -42,19 +42,43 @@ For introductory classes, students can simply run the cells containing these fun
 More advanced students may be interested in understanding the inner working of
 these functions.
 
-### Requirements
-The jupyter notebook requires the following packages to be installed:
+
+### Setup
+The jupyter notebook requires the following packages to be installed.  
+
 * python3
 * numpy
 * scipy
 * pandas
 
+Similar to the [NLP labs](https://github.com/packerliu/CSSLabs-NLP/edit/master/README.md), we will be using [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/). With the Docker Desktop installed, now we can load a docker container on Mac OS or Windows within the lab code folder, i.e. run following command within ```CSSLabs-Experiments\``` folder:
+
+        - Mac OS:
+        ```bash
+        docker run -v $(pwd):/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+        ```
+
+        - Windows Command Prompt:
+        ```bash
+        docker run -v %cd%:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+        ```
+
+        - Windows PowerShell:
+        ```bash
+        docker run -v ${PWD}:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+        ```
+
+Notes: The above "-v" option in docker command will mount your local lab folder into the container. So your edits in the Jupyter notebooks can be persistently saved on local harddrive, even after the container is deleted.  If you want to see yuor previous labs in ```$(pwd)/CSSLabs-NLP```, you can modify this option in the above docker commands to mount the parent folder that have all labs, i.e. ```$(pwd)/..``` on Mac OS.  So the option can be following:  
+```bash
+docker run -v $(pwd)/..:/home/jovyan/work -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
+For windows, please change ```$(pwd)/..``` to ```%cd%\..``` or ```${PWD}\..``` accordingly. 
+
+### Requirements
 A subset of the data from the original experiment is included in this lab. For the full set of data and documentation, go to [http://opr.princeton.edu/archive/cm/](http://opr.princeton.edu/archive/cm/).
 
-### Setup
-The first section of the notebook loads the necessary libraries as well as the
-data.
-The following two lines determine which data set is used.
+In the first section of the notebook, there is a cell that load the necessary libraries as well as the data.
+One of the following two lines determine which data set is used.
 
     data = SDWData(path="external/CM", independent_world=9, num_worlds=9, num_songs=48)
     data = OTreeData(data="data/cultural_market.csv", session="3i8pw3kt", independent_world=0)
