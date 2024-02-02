@@ -8,6 +8,7 @@ You can also use this lab to re-analyze the data from the original study [SDW200
 
 ## Contents
 1. [Analysis](#analysis)
+    1. [Docker Setup](#docker-setup)
     1. [Setup](#setup)
     1. [Requirements](#requirements)
     1. [Descriptive statistics](#descriptive-statistics)
@@ -42,7 +43,6 @@ For introductory classes, students can simply run the cells containing these fun
 More advanced students may be interested in understanding the inner working of
 these functions.
 
-
 ### Setup
 The jupyter notebook requires the following packages to be installed.  
 
@@ -51,7 +51,10 @@ The jupyter notebook requires the following packages to be installed.
 * scipy
 * pandas
 
-Similar to the [NLP labs](https://github.com/packerliu/CSSLabs-NLP/edit/master/README.md), we will be using [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/). With the Docker Desktop installed, now we can load a docker container on Mac OS or Windows within the lab code folder, i.e. run following command within ```CSSLabs-Experiments\``` folder:
+Similar to the [NLP labs](https://github.com/packerliu/CSSLabs-NLP/edit/master/README.md), we will be using [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/). 
+Make sure that you have the Docker Desktop installed.
+If you still have a previous Docker container running for previous lab, stop and delete that container in Docker Desktop first. 
+Now we can load a docker container on Mac OS or Windows within the lab code folder, i.e. run following command within your ```CSSLabs-Experiments\``` folder:
 
         - Mac OS:
         ```bash
@@ -73,6 +76,11 @@ Notes: The above "-v" option in docker command will mount your local lab folder 
 docker run -v $(pwd)/..:/home/jovyan/work -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
 ```
 For windows, please change ```$(pwd)/..``` to ```%cd%\..``` or ```${PWD}\..``` accordingly. 
+
+In YOUR terminal, find the text similar to the one below, paste this URL with YOUR TOKEN to your browser, and you should be all set!
+```
+            http://127.0.0.1:8888/lab?token=[YOUR TOKEN]
+```
 
 ### Requirements
 A subset of the data from the original experiment is included in this lab. For the full set of data and documentation, go to [http://opr.princeton.edu/archive/cm/](http://opr.princeton.edu/archive/cm/).
