@@ -43,57 +43,50 @@ For introductory classes, students can simply run the cells containing these fun
 More advanced students may be interested in understanding the inner working of
 these functions.
 
-### Docker Setup    
-We are using [Jupyter notebook on Docker Stack](https://jupyter-docker-stacks.readthedocs.io/en/latest/) to avoid steps to install various components. With the Docker Desktop installed in above step, now we can load a docker container directly by:
+### Setup
+The jupyter notebook requires the following packages to be installed.  
 
-#### Step 0: Open your docker desktop. Stop running the container you used for previous labs.
-#### Step 1: Open a terminal on Mac OS or the Commandline Prompt on Windows
-#### Step 2: Navigate to the folder where you downloaded the lab folder
-Run the below command in your MacOS terminal or Windows Commandline Prompt 
-
-```bash
-cd "YOUR folder path (where you put the downloaded folder)!"
-```
-
-#### Step 3: Paste the following command to your terminal or Commandline Prompt
-
-- If you are a Mac user, run the following command:
-```bash
-docker run -v $(pwd):/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
-```
-
-- If you are a Windows Command shell user, use this command:
-```bash
-docker run -v %cd%:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
-```
-
-- If you are a Windows PowerShell user, use the following command:
-```bash
-docker run -v ${PWD}:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
-```
-
-#### Step 4
-In YOUR terminal, find the text similar to the one below. Paste the second URL to your browser. Now you should be all set!
-```
-        Or copy and paste one of these URLs:
-            http://bda4c6f01885:8888/lab?token=b045793e8e725f79808eb241136cf80294ba94d86c8f61e4
-            http://127.0.0.1:8888/lab?token=b045793e8e725f79808eb241136cf80294ba94d86c8f61e4
-```
-
-### Requirements
-The jupyter notebook requires the following packages to be installed:
 * python3
 * numpy
 * scipy
 * pandas
 
+Similar to the [NLP labs](https://github.com/packerliu/CSSLabs-NLP/edit/master/README.md), we will be using [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/). 
+Make sure that you have the Docker Desktop installed.
+If you still have a previous Docker container running for previous lab, stop and delete that container in Docker Desktop first. 
+Now we can load a docker container on Mac OS or Windows within the lab code folder, i.e. run following command within your ```CSSLabs-Experiments\``` folder:
+
+        - Mac OS:
+        ```bash
+        docker run -v $(pwd):/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+        ```
+
+        - Windows Command Prompt:
+        ```bash
+        docker run -v %cd%:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+        ```
+
+        - Windows PowerShell:
+        ```bash
+        docker run -v ${PWD}:/home/jovyan/CSSLabs-Experiments -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+        ```
+
+Notes: The above "-v" option in docker command will mount your local lab folder into the container. So your edits in the Jupyter notebooks can be persistently saved on local harddrive, even after the container is deleted.  If you want to see yuor previous labs in ```$(pwd)/CSSLabs-NLP```, you can modify this option in the above docker commands to mount the parent folder that have all labs, i.e. ```$(pwd)/..``` on Mac OS.  So the option can be following:  
+```bash
+docker run -v $(pwd)/..:/home/jovyan/work -p 8888:8888 quay.io/jupyter/scipy-notebook:2024-01-05
+```
+For windows, please change ```$(pwd)/..``` to ```%cd%\..``` or ```${PWD}\..``` accordingly. 
+
+In YOUR terminal, find the text similar to the one below, paste this URL with YOUR TOKEN to your browser, and you should be all set!
+```
+            http://127.0.0.1:8888/lab?token=[YOUR TOKEN]
+```
+
+### Requirements
 A subset of the data from the original experiment is included in this lab. For the full set of data and documentation, go to [http://opr.princeton.edu/archive/cm/](http://opr.princeton.edu/archive/cm/).
 
-
-### Setup
-The first section of the notebook loads the necessary libraries as well as the
-data.
-The following two lines determine which data set is used.
+In the first section of the notebook, there is a cell that load the necessary libraries as well as the data.
+One of the following two lines determine which data set is used.
 
     data = SDWData(path="external/CM", independent_world=9, num_worlds=9, num_songs=48)
     data = OTreeData(data="data/cultural_market.csv", session="3i8pw3kt", independent_world=0)
